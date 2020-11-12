@@ -1,63 +1,42 @@
 class Ball{
   private float x,y;    // position 
+  private float d;     // tyokkei of ball
   private float vx, vy; // velocity
   private color col;    // color
   
   Ball(){
-    x = random(width);
-    y = random(height);
-     
-    float v =0 ;
-    vx =1;
-    vy = -2;
-     
+    x = 250;
+    y = 250;
+    d = 60;
+    vx =2;
+    vy =-4;
     col = color(random(255),random(255),random(255));
-
-  }
-  
-  void is_Hit(Ball b)
-  {
-     float dx = b.x - x;
-     float dy = b.y - y;
-     
-     if(sqrt(dx*dx+dy*dy) < 5*2)
-     {
-        float tvx = b.vx;
-        float tvy = b.vy;
-        
-        b.vx = vx;
-        b.vy = vy;
-        vx = tvx;
-        vy = tvy;
-     }
   }
 
   
-  void move(float d){
-    x += vx*d;
-    y += vy*d;
-
-    if(x < 0 || width < x) {
-       vx = -vx;
-    }
+  void move(float d, Bar ba){
+    x -= vx*d;
+    y += vy*2*d;
     
-    if(y < 0 || height < y) {
-      vy = -vy;
-    }
-
+    //reflect on wall
+    if(x + d/2 > width) vx *= -1; 
+    if(x - d/2 < 0) vx *= -1;
+    if(y - d/2 < 0) vy *= -1;
     
+    //reflect on bar
+    if((x + d/2 > ba.x && x - d/2 < ba.x+ba.w)  
+    &&(ba.y < y + d/2 && y + d/2 < ba.y+ba.h)){ 
+      vy *= -1;
+    }
   }
-  
-  
   
   void setup() {
-   
-
   }
  
   void draw() {
-
-    
+    fill(col);
+    noStroke();
+    circle(x,y,d*2);
   }
 
   
