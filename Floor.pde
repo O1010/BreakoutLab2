@@ -1,22 +1,19 @@
 class Floor{
+  int bottom;
   Floor(){
-        
-    int width = 500,height = 700;
-    float y_0=0;
-    float y_axis = y_0;
+    bottom = height;
   }
-  
+
   void setup() {
 
-    size(width,height);
-  }
-    
-  void draw() {
-    /*
-    if( y_axis >= height){
-      noLoop();
-    }
-    */
+size(width,height);
   }
 
+    boolean isBottomHit(Ball b){
+    if(b.y >= this.bottom)return true;
+    return false;
+    }
+    void stopball(Ball b){
+      if(isBottomHit(b))b.stopball();
+    }
 }
