@@ -20,7 +20,10 @@ class Block{
   }
   
   void reflect(Ball b){
-    if(isHit(b))b.reflect();
+    if(is_alive){
+    b.reflectY();
+    b.y = b.d/2 + this.y+h+1;
+    }
   }
   
   void draw(){  
