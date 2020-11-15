@@ -11,9 +11,7 @@ class Block{
     x = 0;
     y = 0;
     is_alive = true;
-    col = color(random(255),random(255),random(255)); 
-    
-    
+    col = color(random(255),random(255),random(255));  
   }
   
   void is_Hit(Ball b,  Block bl)

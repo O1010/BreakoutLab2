@@ -12,9 +12,11 @@ class Floor{
   }
     
   void draw() {
+    /*
     if( y_axis >= height){
       noLoop();
     }
+    */
   }
 
 }
