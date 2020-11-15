@@ -23,6 +23,7 @@ void setup(){
       }
     }  
 }
+
  
 void draw(){
   background(0);
@@ -34,6 +35,10 @@ void draw(){
   for(Block bl : blocks) {    
     if(bl.is_alive){
       bl.draw();
+    }
+    if(bl.isHit(ball)) {
+      bl.reflect(ball);
+      bl.is_alive = false;
     }
   }
   controller.moveBar();
