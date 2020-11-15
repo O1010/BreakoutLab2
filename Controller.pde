@@ -1,6 +1,7 @@
 class Controller{
   Bar bar;
   
+
   Controller(Bar bar){//Controllerクラスはbarクラスを動かすためのもの
   this.bar = bar;
   }

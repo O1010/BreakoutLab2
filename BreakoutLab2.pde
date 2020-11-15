@@ -3,7 +3,9 @@ Bar bar;
 ArrayList<Block> blocks;
 Wall wall;
 Controller controller;
+
 Floor floor;//
+
 
 
 void setup(){
@@ -16,6 +18,7 @@ void setup(){
   wall = new Wall();
   controller = new Controller(bar);
   floor = new Floor();//chikahiro 追記
+
   
   blocks = new ArrayList<Block>();
   for(int j=0;j<3;j++){
@@ -35,6 +38,7 @@ void draw(){
   ball.draw();
   bar.draw();
   floor.stopball(ball);//chikahiro 追記
+
   
   for(Block bl : blocks) {    
     if(bl.is_alive){

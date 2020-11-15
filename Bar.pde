@@ -13,7 +13,9 @@ class Bar{
     h = 30;
     speed = 20;
     arrow = 0;
+
     col = color(0,0,255);
+
   }
   
   void move(){

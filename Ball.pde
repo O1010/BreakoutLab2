@@ -11,6 +11,7 @@ class Ball{
     vx = 2;
     vy = -4;
     col = color(255,0,0);
+
   }
 
   void move(){
@@ -31,12 +32,14 @@ class Ball{
   void reflectY(){
     vy *= -1;
    }
+
      //chikahiro 追記
   void stopball(){
     noLoop();
    textSize(100);
    text("GameOver",width/10,height/2);
   }
+
   void draw(){
     move();
     fill(col);
