@@ -1,18 +1,25 @@
-class Block{
-  private float w, h; //size
-  private float x, y; //position
-  private color col;
-  private boolean is_alive;  
+class Bar{
+  private float x,y; //position
+  private float w,h; //size
+  private color col; 
+  private int speed;
+  public int arrow;// 0=Stop 1=Right -1=Left
   
-  Block(float x, float y){
-    w = 100;
+ 
+  Bar(){
+    x = 50;
+    y = 500;
+    w = 150;
     h = 30;
-    this.x = x;
-    this.y = y;
-    is_alive = true;
-    col = color(random(255),random(255),random(255)); 
+    speed = 20;
+    arrow = 0;
+    col = color(random(255),random(255),random(255));
   }
   
+  void move(){
+    x += speed*arrow;
+  }
+
   boolean isHit(Ball b){
     if((b.x + b.d/2 > this.x && b.x - b.d/2 < (this.x+w)) 
         &&(this.y < b.y - b.d/2 && b.y - b.d/2 < (this.y+h))) return true;
@@ -20,13 +27,12 @@ class Block{
   }
   
   void reflect(Ball b){
-    if(isHit(b))b.reflect();
+    if(isHit(b))b.reflectY();
   }
   
-  void draw(){  
+  void draw() {
+    move();
     fill(col);
-    noStroke();
-    rect(x, y, w, h);    
+    rect(x, y, w, h);
   }
 }
- 
